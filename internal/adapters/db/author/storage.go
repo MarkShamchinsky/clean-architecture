@@ -1,10 +1,14 @@
-package book
+package author
 
 import (
 	"ca-library-go/internal/domain/author"
 )
 
 type authorStorage struct {
+}
+
+func NewStorage() author.Storage {
+	return &authorStorage{}
 }
 
 func (bs *authorStorage) GetOne(uuid string) *author.Author {
