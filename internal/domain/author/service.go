@@ -5,22 +5,22 @@ import (
 	"context"
 )
 
-type service struct {
+type Service struct {
 	storage Storage
 }
 
 func NewService(storage Storage) author.Service {
-	return &service{storage: storage}
+	return &Service{storage: storage}
 }
 
-func (s *service) Create(ctx context.Context, dto *CreateAuthorDTO) *Author {
+func (s *Service) Create(ctx context.Context, dto *CreateAuthorDTO) *Author {
 	return nil
 }
 
-func (s *service) GetByUUID(ctx context.Context, uuid string) *Author {
+func (s *Service) GetByUUID(ctx context.Context, uuid string) *Author {
 	return s.storage.GetOne(uuid)
 }
 
-func (s *service) GetAll(ctx context.Context, limit, offset int) []*Author {
+func (s *Service) GetAll(ctx context.Context, limit, offset int) []*Author {
 	return s.storage.GetAll(limit, offset)
 }

@@ -1,8 +1,12 @@
 package book
 
-import "ca-library-go/internal/domain/book"
+import (
+	"ca-library-go/internal/domain/book"
+	"go.mongodb.org/mongo-driver/mongo"
+)
 
 type bookStorage struct {
+	db mongo.Database
 }
 
 func NewStorage() book.Storage {
