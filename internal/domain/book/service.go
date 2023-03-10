@@ -1,18 +1,15 @@
 package book
 
-import "context"
-
-type Service interface {
-	GetBookByUUID(ctx context.Context, uuid string) *Book
-	GetAllBook(ctx context.Context, limit, offset int) []*Book
-	CreateBook(ctx context.Context, dto *CreateBookDTO) *Book
-}
+import (
+	"ca-library-go/internal/adapters/api/book"
+	"context"
+)
 
 type service struct {
 	storage Storage
 }
 
-func NewService(storage Storage) Service {
+func NewService(storage Storage) book.Service {
 	return &service{storage: storage}
 }
 
