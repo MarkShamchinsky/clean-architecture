@@ -6,11 +6,11 @@ import (
 )
 
 type bookStorage struct {
-	db mongo.Database
+	db *mongo.Database
 }
 
-func NewStorage() book.Storage {
-	return &bookStorage{}
+func NewStorage(db *mongo.Database) book.Storage {
+	return &bookStorage{db: db}
 }
 
 func (bs *bookStorage) GetOne(uuid string) *book.Book {
